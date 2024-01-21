@@ -1,0 +1,18 @@
+---
+- hosts: all
+  become: true
+  tasks:
+    - name: check the time
+      command: date
+    - name: create user mbeh
+      user:
+       name: mbeh24
+       comment: mbeh admin
+    - name: create group
+      group:
+         name: security
+         state: present
+    - name: install package
+      package:
+        name: vim
+        state: present    
